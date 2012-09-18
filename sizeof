@@ -1,0 +1,23 @@
+#!/bin/bash
+while getopts ":h" opt; do
+	case $opt in
+		h)
+			if [ -d $1 ]
+			then 
+				du -h $1 | tail -n 1	
+			fi
+			;;
+
+		\?)
+			du -h $1 	
+			echo "script done"
+			;; 
+	esac
+done
+
+if [ $1 ]
+then
+	du -h $1
+fi
+ 
+
